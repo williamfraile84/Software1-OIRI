@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista de Solicitudes</title>
+</head>
+<body>
+    <h1>Solicitudes Registradas</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Descripción</th>
+            <th>Estudiante</th>
+            <!-- Otros campos -->
+        </tr>
+        <tr th:each="solicitud : ${solicitudes}">
+            <td th:text="${solicitud.id}"></td>
+            <td th:text="${solicitud.descripcion}"></td>
+            <td th:text="${solicitud.estudiante.nombre}"></td>
+            <!-- Otros campos -->
+        </tr>
+    </table>
+</body>
+</html>

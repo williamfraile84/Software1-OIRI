@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+<head th:replace="layout/layout :: head">
+    <meta charset="UTF-8">
+    <title>Registrar Estudiante</title>
+</head>
+<body>
+
+<section class="nombreClass">
+    <div class="container-fluid" layout:fragment="views">
+        <div class="col mt-3 mb-3">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <h1 class="text-center">Registrar Estudiante</h1>
+                    </div>
+                </div>
+                <form id="estudianteForm" th:action="@{/estudiantes/guardar}" th:object="${estudiante}" method="post">
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label for="nombre" class="form-label">Nombre:</label>
+                            <input type="text" id="nombre" th:field="*{nombre}" class="form-control" required />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="codigo" class="form-label">Código:</label>
+                            <input type="text" id="codigo" th:field="*{codigo}" class="form-control" required />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email:</label>
+                            <input type="email" id="email" th:field="*{email}" class="form-control" required />
+                        </div>
+
+                        <!-- Agrega otros campos según sea necesario -->
+                    </div>
+                    <div class="card-footer d-flex justify-content-around">
+                        <button id="submitEstudiante" class="btn btn-primary" type="submit">
+                            <i class="fa-solid fa-file-arrow-up mx-1"></i><span>Guardar</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<th:block layout:fragment="page-scripts">
+</th:block>
+
+</body>
+</html>

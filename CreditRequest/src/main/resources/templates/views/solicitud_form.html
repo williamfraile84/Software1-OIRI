@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Nueva Solicitud</title>
+</head>
+<body>
+    <h1>Crear Solicitud para <span th:text="${solicitud.estudiante.nombre}"></span></h1>
+    <form th:action="@{/solicitudes/guardar}" th:object="${solicitud}" method="post">
+        <input type="hidden" th:field="*{estudiante.id}" />
+        <label for="descripcion">Descripción:</label>
+        <textarea id="descripcion" th:field="*{descripcion}" required></textarea>
+
+        <!-- Agrega otros campos según sea necesario -->
+
+        <button type="submit">Guardar</button>
+    </form>
+</body>
+</html>
